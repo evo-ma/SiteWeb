@@ -1,20 +1,23 @@
 <?php
-// Détection automatique du dossier racine
-$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
-$host = $_SERVER['HTTP_HOST'];
-// if (isset($_SERVER['HTTP_HOST'])) {
-//     $host = $_SERVER['HTTP_HOST'];
-// } else {
-//     $host = 'https://curious-sunburst-3855da.netlify.app/'; // Valeur par défaut pour le build Netlify
-// }
-// Obtenir le chemin du script actuel
-$script_path = dirname($_SERVER['SCRIPT_NAME']);
+// Détection du mode (CLI/Build vs Navigateur)
+$is_build = (php_sapi_name() === 'cli');
 
-// Remonter au dossier racine (enlever /components/pages si nécessaire)
-$root_path = preg_replace('#/components(/pages)?$#', '', $script_path);
+if ($is_build) {
+    // Pendant le build Netlify
+    $protocol = 'https';
+    $host = 'curious-sunburst-3855da.netlify.app';
+    $root_path = ''; 
+} else {
+    // En local ou sur un serveur classique
+    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+    $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+    $script_path = dirname($_SERVER['SCRIPT_NAME'] ?? '');
+    $root_path = preg_replace('#/components(/pages)?$#', '', $script_path);
+}
 
-// S'assurer qu'il y a un / à la fin
-define('BASE_URL', $protocol . "://" . $host . rtrim($root_path, '/') . '/');
+// Construction de la BASE_URL propre
+$clean_root = ($root_path === '/' || $root_path === '.') ? '' : rtrim($root_path, '/');
+define('BASE_URL', $protocol . "://" . $host . $clean_root . '/');
 
 // Chemins des assets
 define('CSS_PATH', BASE_URL . 'css/');
@@ -24,11 +27,10 @@ define('BOOTSTRAP_JS', BASE_URL . 'bootstrap/js/bootstrap.bundle.min.js');
 define('IMAGES_PATH', BASE_URL . 'images/');
 define('FONTS_PATH', BASE_URL . 'fonts/');
 
-// Chemins des composants
+// Chemins des composants (Chemins système, ne pas changer)
 define('COMPONENTS_PATH', __DIR__ . '/components/');
 define('PAGES_PATH', COMPONENTS_PATH . 'pages/');
 
-// Fonction pour inclure les composants
 function includeComponent($component) {
     $file = COMPONENTS_PATH . $component . '.php';
     if (file_exists($file)) {
@@ -38,7 +40,6 @@ function includeComponent($component) {
     }
 }
 
-// Fonction pour générer les URLs
 function url($path = '') {
     return BASE_URL . ltrim($path, '/');
 }
