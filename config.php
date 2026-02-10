@@ -17,7 +17,7 @@ $root_path = preg_replace('#/components(/pages)?$#', '', $script_path);
 define('BASE_URL', $protocol . "://" . $host . rtrim($root_path, '/') . '/');
 
 // Chemins des assets
-//define('CSS_PATH', BASE_URL . 'css/');
+define('CSS_PATH', BASE_URL . 'css/');
 define('JS_PATH', BASE_URL . 'js/');
 define('BOOTSTRAP_CSS', BASE_URL . 'bootstrap/css/bootstrap.min.css');
 define('BOOTSTRAP_JS', BASE_URL . 'bootstrap/js/bootstrap.bundle.min.js');
