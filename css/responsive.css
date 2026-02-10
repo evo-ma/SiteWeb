@@ -1,0 +1,86 @@
+@font-face {
+  font-family: "bootstrap-icons";
+  src: url("fonts/bootstrap-icons.woff2") format("woff2"), url("fonts/bootstrap-icons.woff") format("woff");
+}
+@font-face {
+  font-family: 'work';
+  src: url('../fonts/WorkSans-Black.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+.text-secondary {
+  color: #b4b5b9;
+}
+/* Small devices (phones, 576px et plus) */
+@media (min-width: 768px) {
+  .container {
+    max-width: 540px;
+  }
+  body {
+    background-color: red;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 768px) {
+  body {
+    background-color: red;
+  }
+  .primary-nav {
+    border-radius: 0;
+    margin-top: 10px;
+  }
+  .text-size-20 {
+    font-size: 20px;
+    line-height: 32px;
+  }
+}
+/* Medium devices (tablets, 768px et plus) */
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.25rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+}
+/* Large devices (desktops, 992px et plus) */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 960px;
+  }
+  h1 {
+    font-size: 3.5rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+}
+/* Extra Large devices (large desktops, 1200px et plus) */
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+/* Extra Extra Large devices (1400px et plus) */
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1320px;
+  }
+}
