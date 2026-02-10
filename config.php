@@ -1,8 +1,12 @@
 <?php
 // Détection automatique du dossier racine
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
-$host = $_SERVER['HTTP_HOST'];
-
+//$host = $_SERVER['HTTP_HOST'];
+if (isset($_SERVER['HTTP_HOST'])) {
+    $host = $_SERVER['HTTP_HOST'];
+} else {
+    $host = 'https://curious-sunburst-3855da.netlify.app/'; // Valeur par défaut pour le build Netlify
+}
 // Obtenir le chemin du script actuel
 $script_path = dirname($_SERVER['SCRIPT_NAME']);
 
