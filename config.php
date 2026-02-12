@@ -17,7 +17,7 @@ if ($is_build) {
 
 // Construction de la BASE_URL propre
 $clean_root = ($root_path === '/' || $root_path === '.') ? '' : rtrim($root_path, '/');
-define('BASE_URL', $protocol . "://" . $host . $clean_root . '/');
+define('BASE_URL', $protocol . "://" . $host);
 
 // Chemins des assets
 define('CSS_PATH', BASE_URL . 'css/');

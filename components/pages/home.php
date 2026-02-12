@@ -1,5 +1,5 @@
 <?php
-$base_url = '/Evo'; 
+$base_url = BASE_URL;
 ?>
 <section class=" section-top">
     <div class="hero-modern ">
@@ -342,7 +342,7 @@ $base_url = '/Evo';
                                             Notre équipe d'experts est là pour vous aider à trouver la meilleure
                                             solution pour votre entreprise.
                                         </p>
-                                        <a href="/Evo/components/pages/contact.php" class="btn-faq-contact">
+                                        <a href="<?php echo $base_url; ?>/components/pages/contact.php" class="btn-faq-contact">
                                             <i class="fas fa-comments"></i>
                                             <span>Contactez-nous</span>
                                             <i class="fas fa-arrow-right"></i>
@@ -954,11 +954,11 @@ $base_url = '/Evo';
 
 
         <div>
-            <button class="btn gradient-btn me-sm-4 me-0 mt-3 mt-sm-0">
+            <button onclick="window.location.href='<?= $base_url; ?>/components/pages/contact.php'"  class="btn gradient-btn me-sm-4 me-0 mt-3 mt-sm-0">
                 <i class="bi bi-chat-left-dots me-2"></i>
                 Consultation Gratuite
             </button>
-            <a class="btn secondary-btn my-5" href="#">+212 522 951 400</a>
+            <a class="btn secondary-btn my-5" href="tel:+212520999721">+212-520-999-721</a>
         </div>
     </section>
 
