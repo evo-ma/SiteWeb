@@ -14,7 +14,7 @@
   <?php include 'components/header.php'; ?>
 
   <main>
-    <?php include 'components/pages/services.php'; ?>
+    <!-- <?php // include 'components/pages/services.php'; ?> -->
   </main>
 
   <?php include 'components/footer.php'; ?>
